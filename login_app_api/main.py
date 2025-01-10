@@ -29,7 +29,7 @@ users_db = {
         "first_name": "Jean",
         "last_name": "Dupont",
         "email": "jean@example.com",
-        "hashed_password": pwd_context.hash("password123"),
+        "hashed_password": pwd_context.hash("ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f"),
         "role": "user",
     },
     "admin@example.com": {
@@ -37,7 +37,7 @@ users_db = {
         "first_name": "Admin",
         "last_name": "Admin",
         "email": "admin@example.com",
-        "hashed_password": pwd_context.hash("admin123"),
+        "hashed_password": pwd_context.hash("240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9"),
         "role": "admin",
     }
 }
@@ -51,7 +51,7 @@ class LoginRequest(BaseModel):
 @app.post("/login")
 async def login(request: LoginRequest):
     user = users_db.get(request.email)
-    
+
     # check user exist and password is good
     if not user or not pwd_context.verify(request.password, user["hashed_password"]):
         raise HTTPException(
