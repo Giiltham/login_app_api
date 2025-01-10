@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "login_app_api"
+version = "0.1.0"
+description = ""
+authors = ["Cédric Brunet <cedric.brunet@socotec.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+passlib = "^1.7.4"
+uvicorn = "^0.34.0"
+
+[tool.poetry.scripts]
+dev = "login_app_api.main:run"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
